@@ -1,0 +1,11 @@
+global:
+  resolve_timeout: 5s
+
+route:
+  receiver: remediation-webhook
+
+receivers:
+  - name: remediation-webhook
+    webhook_configs:
+      - url: http://remediation:5001/remediate
+        send_resolved: true

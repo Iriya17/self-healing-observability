@@ -1,0 +1,11 @@
+groups:
+  - name: application-alerts
+    rules:
+      - alert: ApplicationDown
+        expr: up{job="my-app"} == 0
+        for: 15s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Application is down"
+          description: "The monitored application has been unavailable for more than 15 seconds."
